@@ -34,12 +34,14 @@ document.addEventListener("DOMContentLoaded", () => {
 
   /////////// CONSTANTS ///////////////
   const canvas = document.querySelector("canvas");
+  const container = document.querySelector(".container-div")
+  console.log(container)
   const ctx = canvas.getContext("2d");
   let painting = false;
 
   /////////// FUNCTIONS ///////////////
 canvas.width = 1000
-canvas.height = 500 
+canvas.height = 500
 canvas.top = 170 
 canvas.left = 430
 
@@ -60,7 +62,7 @@ canvas.left = 430
     ctx.color = 'white'
 
       ///// HACKY WAY TO DRAW AT MOUSE POINT. NEED TO FIGURE OUT MOUSE CO_ORDINATES ON CLICK ////////
-    ctx.lineTo(e.clientX - 410, e.clientY - 80) 
+    ctx.lineTo(e.clientX - canvas.offsetLeft, e.clientY - canvas.offsetTop) 
     ctx.stroke()
   };
   
