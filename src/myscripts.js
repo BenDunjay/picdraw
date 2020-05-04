@@ -62,13 +62,14 @@ canvas.left = 430
       ///// HACKY WAY TO DRAW AT MOUSE POINT. NEED TO FIGURE OUT MOUSE CO_ORDINATES ON CLICK ////////
     ctx.lineTo(e.clientX - 410, e.clientY - 80) 
     ctx.stroke()
-    console.log("sdfsd")
   };
+  
 
   ////////// CALL FUNCTIONS ///////////
   canvas.addEventListener("mousedown", startPosition);
   canvas.addEventListener("mouseup", finishedPosition);
   canvas.addEventListener("mousemove", paint)
+  canvas.addEventListener("mouseout", finishedPosition)
   
 
 
