@@ -1,8 +1,10 @@
 document.addEventListener("DOMContentLoaded", () => {
   const apiHeaders = {
     "Content-Type": "application/json",
-    "Accept": "application/json",
-  };
+    "Accept": "application/json"
+    };
+
+
   //////////// API STUFF //////////////
   const GAMES_URL = "http://localhost:3000/games";
   const USERS_URL = "http://localhost:3000/users/";
@@ -23,8 +25,8 @@ document.addEventListener("DOMContentLoaded", () => {
     return fetch(url + user.id, {
       method: "PATCH",
       headers: apiHeaders,
-      body: JSON.stringify(user),
-    }).then((response) => response.json());
+      body: JSON.stringify(user)
+    }).then(response => response.json());
   };
 
   const destroy = (url, user) => {
@@ -45,7 +47,11 @@ document.addEventListener("DOMContentLoaded", () => {
   let painting = false;
   const addPlayerBtn = document.querySelector("#add-player");
   const addNewPlayer = document.querySelector("#new-player");
-  const flipCardDiv = document.querySelector('#flip-card')
+  // const flipCardDiv = document.querySelector('#flip-card')
+  const picWord = document.querySelector('#word')
+  const wordGenerator = document.querySelector('#generate')
+  const timer = document.querySelector('#timer')
+  timer.hidden = true 
 
   /////////// FUNCTIONS ///////////////
   canvas.width = 1000;
@@ -101,6 +107,10 @@ document.addEventListener("DOMContentLoaded", () => {
     liPlayerScore.innerText = ` ${playerNumber}. ${user.name} => ${user.points}`;
     playerNumber += 1;
 
+    currentPlayer.addEventListener('click', (e) => {
+      addScore(user, e)
+    })
+
     liPlayer.append(currentPlayer, removePlayer);
     ulPlayers.appendChild(liPlayer);
     playerLeaderboard.appendChild(liPlayerScore);
@@ -133,8 +143,49 @@ document.addEventListener("DOMContentLoaded", () => {
     api.destroy(USERS_URL, user).then()
   }
 
+  ///// RANDOM WORD EVENT LISTENER
+
+let wordArray = [`Witch`, `American Flag`, `Penguin`, `Football Pitch`, `Horse`, `Computer`, `Tennis Racquet`, `Bob Marley`]
+
+wordGenerator.addEventListener('click', () => {
+    picWord.innerText = wordArray[Math.floor(Math.random() * wordArray.length)]
+    timer.hidden = false
+    timer.innerText = 5
+    clearInterval(decreaseNew)
+    decreaseNew = decreasingCounter()
+})
+
+const decrease = () => {
+  num = parseInt(timer.innerText)
+    if (num !== 0){
+    num = num - 1
+    timer.innerText = num
+    }else{
+    alert("Click on the person who got the ansewer right! Then when the next person is ready, click generate!")
+    timer.hidden = true
+    clearInterval(decreaseNew)
+    ctx.clearRect(0, 0, canvas.width, canvas.height)
+  }
+
+}
+
+// clears the interval and resets it. Need to call this function every time it would be clicked on. 
+
+function decreasingCounter() {
+  return setInterval(decrease, 1000)
+}
+let decreaseNew = decreasingCounter()
 
 
+const addScore = (user, event) => {
+  user.points += 10
+  console.log(user)
+  api.patch(USERS_URL, user).then(user => renderUser(user))
+}
+
+
+
+// call function 
   getUsers();
 
 });
