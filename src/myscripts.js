@@ -115,9 +115,9 @@ document.addEventListener("DOMContentLoaded", () => {
     ulPlayers.appendChild(liPlayer);
     playerLeaderboard.appendChild(liPlayerScore);
 
-    removePlayer.addEventListener('click',(e) => {
+    removePlayer.addEventListener('click',() => {
       // console.log(user)
-      deletePlayer(e, user)
+      deletePlayer(user, liPlayer)
     })
   };
 
@@ -139,8 +139,8 @@ document.addEventListener("DOMContentLoaded", () => {
   };
 
 ///// TO BE MOVED AROUND
-  const deletePlayer = (event, user) => {
-    api.destroy(USERS_URL, user).then()
+  const deletePlayer = ( user, li) => {
+    api.destroy(USERS_URL, user).then(li.remove())
   }
 
   ///// RANDOM WORD EVENT LISTENER
@@ -150,7 +150,7 @@ let wordArray = [`Witch`, `American Flag`, `Penguin`, `Football Pitch`, `Horse`,
 wordGenerator.addEventListener('click', () => {
     picWord.innerText = wordArray[Math.floor(Math.random() * wordArray.length)]
     timer.hidden = false
-    timer.innerText = 5
+    timer.innerText = 40
     clearInterval(decreaseNew)
     decreaseNew = decreasingCounter()
 })
@@ -180,9 +180,12 @@ let decreaseNew = decreasingCounter()
 const addScore = (user, event) => {
   user.points += 10
   console.log(user)
-  api.patch(USERS_URL, user).then(user => renderUser(user))
+  api.patch(USERS_URL, user).then( () => {
+    ulPlayers.innerHTML = "";
+    playerLeaderboard.innerHTML = ""
+    getUsers()
+})
 }
-
 
 
 // call function 
