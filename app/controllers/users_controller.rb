@@ -20,9 +20,8 @@ class UsersController < ApplicationController
     end
 
     def update
-        byebug
         user = User.find_by_id(params[:id])
-        user.update(name: params[:name], points: [:points], game_id: params[:game_id])
+        user.update(name: params[:name], points: params[:points], game_id: params[:game_id])
             render json: user
 
     end
