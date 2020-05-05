@@ -1,11 +1,11 @@
 document.addEventListener("DOMContentLoaded", () => {
   const apiHeaders = {
     "Content-Type": "application/json",
-    Accept: "application/json",
+    "Accept": "application/json",
   };
   //////////// API STUFF //////////////
   const GAMES_URL = "http://localhost:3000/games";
-  const USERS_URL = "http://localhost:3000/users";
+  const USERS_URL = "http://localhost:3000/users/";
 
   const get = (url) => {
     return fetch(url).then((response) => response.json());
@@ -29,9 +29,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const destroy = (url, user) => {
     return fetch(url + user.id, {
-      method: "DELETE",
-    });
-  };
+      method: "DELETE"
+    }).then(response => response.json())
+  }
 
   const api = { get, post, patch, destroy };
 
@@ -45,6 +45,7 @@ document.addEventListener("DOMContentLoaded", () => {
   let painting = false;
   const addPlayerBtn = document.querySelector("#add-player");
   const addNewPlayer = document.querySelector("#new-player");
+  const flipCardDiv = document.querySelector('#flip-card')
 
   /////////// FUNCTIONS ///////////////
   canvas.width = 1000;
@@ -88,19 +89,26 @@ document.addEventListener("DOMContentLoaded", () => {
   canvas.addEventListener("mouseout", finishedPosition);
 
   const renderUser = (user) => {
-    console.log(ulPlayers);
+    
     const liPlayer = document.createElement("li");
     const currentPlayer = document.createElement("button");
+    const removePlayer = document.createElement("button");
+    removePlayer.innerHTML = 'X'
+    removePlayer.classList.add('remove-player')
     currentPlayer.innerHTML = `${user.name}`;
-
-    liPlayer.appendChild(currentPlayer);
-    ulPlayers.appendChild(liPlayer);
 
     const liPlayerScore = document.createElement("li");
     liPlayerScore.innerText = ` ${playerNumber}. ${user.name} => ${user.points}`;
     playerNumber += 1;
 
+    liPlayer.append(currentPlayer, removePlayer);
+    ulPlayers.appendChild(liPlayer);
     playerLeaderboard.appendChild(liPlayerScore);
+
+    removePlayer.addEventListener('click',(e) => {
+      // console.log(user)
+      deletePlayer(e, user)
+    })
   };
 
   const passingGame = (game) => {
@@ -117,8 +125,16 @@ document.addEventListener("DOMContentLoaded", () => {
       points: 0,
       game_id: game.id,
     };
-    api.post(USERS_URL, user).then(renderUser(user))
+    api.post(USERS_URL, user).then((newUser) => renderUser(newUser))
   };
 
+///// TO BE MOVED AROUND
+  const deletePlayer = (event, user) => {
+    api.destroy(USERS_URL, user).then()
+  }
+
+
+
   getUsers();
+
 });

@@ -5,10 +5,8 @@ class UsersController < ApplicationController
         render json: users
       end
 
-      def show
-        
-       user = User.find_by_id(params[:id])
-        
+    def show 
+        user = User.find_by_id(params[:id])  
         render json: user
     end
 
@@ -18,6 +16,13 @@ class UsersController < ApplicationController
 
     def create 
         user = User.create(name: params[:name], points: 0, game_id: params[:game_id])
+        render json: user
+    end
+
+    def destroy
+        user = User.find_by_id(params[:id])
+        user.destroy
+        render json: {}
     end
 
 
