@@ -13,4 +13,10 @@ class GamesController < ApplicationController
             :users => {:only => [:name, :points]}
         })
     end
+
+    def create 
+        game = Game.create(name: params[:name], users: params[:users])
+        render json: game
+    end
+
 end

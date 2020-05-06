@@ -6,7 +6,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
   //////////// API STUFF //////////////
-  const GAMES_URL = "http://localhost:3000/games";
+  const GAMES_URL = "http://localhost:3000/games/";
   const USERS_URL = "http://localhost:3000/users/";
 
   const get = (url) => {
@@ -52,6 +52,7 @@ document.addEventListener("DOMContentLoaded", () => {
   timer.hidden = true 
   let currentGo = 1
   let currentPlayer = ""
+  const newBtn = document.querySelector('#new-game')
 
   /////////// FUNCTIONS ///////////////
   canvas.width = 1000;
@@ -82,7 +83,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const getPlayers = () => {
     api.get(GAMES_URL).then((games) => {
-      const game = games.slice(-1)[0];
+      let game = games.slice(-1)[0];
       game.users.forEach((user) => renderUser(user));
       passingGame(game);
     });
@@ -108,6 +109,7 @@ document.addEventListener("DOMContentLoaded", () => {
     // const liPlayerScore = document.createElement("tr");
     
     const tableRow = table.insertRow()
+    tableRow.classList.add('row')
     const tableName = tableRow.insertCell(0)
     const tablePoints = tableRow.insertCell(1)
     tableName.innerHTML = `${user.name}`
@@ -139,14 +141,18 @@ document.addEventListener("DOMContentLoaded", () => {
   };
 
   const createNewPlayer = (game) => {
-    const name = addNewPlayer.value;
-    const user = {
+      // api.get(GAMES_URL).then((games) => {
+      // const game = games.slice(-1)[0];
+
+      const name = addNewPlayer.value;
+      const user = {
       name: name,
       points: 0,
       game_id: game.id,
     };
     api.post(USERS_URL, user).then((newUser) => renderUser(newUser))
     addNewPlayer.value = "" 
+  // });
   };
 
 ///// TO BE MOVED AROUND
@@ -229,6 +235,20 @@ cyclePlayer()
     clearInterval(decreaseNew)
 })
 }
+
+newBtn.addEventListener('click', () => { 
+    const newGame = { name: "",
+                      users: []
+}
+    api.post(GAMES_URL, newGame).then(()=> {
+      ulPlayers.innerHTML = "";
+      let innerTable = document.querySelectorAll('.row')
+      console.log(innerTable)
+      innerTable.forEach(row => row.remove())
+      document.querySelector('#add-player').disabled = false
+      // getPlayers()
+    })
+})
 
 // Get the modal
 const modal = document.getElementById("myModal");
