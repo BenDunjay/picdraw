@@ -98,8 +98,9 @@ document.addEventListener("DOMContentLoaded", () => {
     
     const liPlayer = document.createElement("li");
     const currentPlayer = document.createElement("button");
+    currentPlayer.classList.add('player')
     const removePlayer = document.createElement("button");
-    removePlayer.innerHTML = 'X'
+    removePlayer.innerHTML = '🚮'
     removePlayer.classList.add('remove-player')
     currentPlayer.innerHTML = `${user.name}`;
 
@@ -161,7 +162,7 @@ const decrease = () => {
     num = num - 1
     timer.innerText = num
     }else{
-    alert("Click on the person who got the ansewer right! Then when the next person is ready, click generate!")
+    alert("Click on the person who got the answer right! Then when the next person is ready, click generate!")
     timer.hidden = true
     clearInterval(decreaseNew)
     ctx.clearRect(0, 0, canvas.width, canvas.height)
