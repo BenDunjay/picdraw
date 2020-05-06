@@ -14451,3 +14451,896 @@ Processing by UsersController#destroy as */*
 Completed 200 OK in 6ms (Views: 0.2ms | ActiveRecord: 1.8ms | Allocations: 2201)
 
 
+Started PATCH "/users/92" for ::1 at 2020-05-06 09:48:24 +0100
+Processing by UsersController#update as JSON
+  Parameters: {"id"=>"92", "name"=>"Ben", "points"=>10, "game_id"=>2, "created_at"=>"2020-05-05T21:28:32.573Z", "updated_at"=>"2020-05-05T21:28:32.573Z", "user"=>{"id"=>"92", "name"=>"Ben", "points"=>10, "game_id"=>2, "created_at"=>"2020-05-05T21:28:32.573Z", "updated_at"=>"2020-05-05T21:28:32.573Z"}}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 92], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:23:in `update'
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users_controller.rb:24:in `update'
+  [1m[36mGame Load (0.1ms)[0m  [1m[34mSELECT "games".* FROM "games" WHERE "games"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:24:in `update'
+  [1m[36mUser Update (0.3ms)[0m  [1m[33mUPDATE "users" SET "points" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["points", 10], ["updated_at", "2020-05-06 08:48:24.797292"], ["id", 92]]
+  ↳ app/controllers/users_controller.rb:24:in `update'
+  [1m[35m (1.5ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/users_controller.rb:24:in `update'
+Completed 200 OK in 10ms (Views: 0.5ms | ActiveRecord: 2.2ms | Allocations: 3896)
+
+
+Started GET "/games" for ::1 at 2020-05-06 09:48:24 +0100
+Processing by GamesController#index as */*
+  [1m[36mGame Load (0.2ms)[0m  [1m[34mSELECT "games".* FROM "games"[0m
+  ↳ app/controllers/games_controller.rb:5:in `index'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."game_id" = ?[0m  [["game_id", 1]]
+  ↳ app/controllers/games_controller.rb:5:in `index'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."game_id" = ?[0m  [["game_id", 2]]
+  ↳ app/controllers/games_controller.rb:5:in `index'
+Completed 200 OK in 9ms (Views: 7.5ms | ActiveRecord: 0.6ms | Allocations: 3467)
+
+
+Started PATCH "/users/92" for ::1 at 2020-05-06 09:48:51 +0100
+Processing by UsersController#update as JSON
+  Parameters: {"id"=>"92", "name"=>"Ben", "points"=>20, "game_id"=>2, "created_at"=>"2020-05-05T21:28:32.573Z", "updated_at"=>"2020-05-06T08:48:24.797Z", "user"=>{"id"=>"92", "name"=>"Ben", "points"=>20, "game_id"=>2, "created_at"=>"2020-05-05T21:28:32.573Z", "updated_at"=>"2020-05-06T08:48:24.797Z"}}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 92], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:23:in `update'
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users_controller.rb:24:in `update'
+  [1m[36mGame Load (0.1ms)[0m  [1m[34mSELECT "games".* FROM "games" WHERE "games"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:24:in `update'
+  [1m[36mUser Update (0.3ms)[0m  [1m[33mUPDATE "users" SET "points" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["points", 20], ["updated_at", "2020-05-06 08:48:51.097822"], ["id", 92]]
+  ↳ app/controllers/users_controller.rb:24:in `update'
+  [1m[35m (0.8ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/users_controller.rb:24:in `update'
+Completed 200 OK in 6ms (Views: 0.2ms | ActiveRecord: 1.3ms | Allocations: 3896)
+
+
+Started GET "/games" for ::1 at 2020-05-06 09:48:51 +0100
+Processing by GamesController#index as */*
+  [1m[36mGame Load (0.3ms)[0m  [1m[34mSELECT "games".* FROM "games"[0m
+  ↳ app/controllers/games_controller.rb:5:in `index'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."game_id" = ?[0m  [["game_id", 1]]
+  ↳ app/controllers/games_controller.rb:5:in `index'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."game_id" = ?[0m  [["game_id", 2]]
+  ↳ app/controllers/games_controller.rb:5:in `index'
+Completed 200 OK in 12ms (Views: 10.8ms | ActiveRecord: 0.6ms | Allocations: 3467)
+
+
+Started PATCH "/users/92" for ::1 at 2020-05-06 09:48:56 +0100
+Processing by UsersController#update as JSON
+  Parameters: {"id"=>"92", "name"=>"Ben", "points"=>30, "game_id"=>2, "created_at"=>"2020-05-05T21:28:32.573Z", "updated_at"=>"2020-05-06T08:48:51.097Z", "user"=>{"id"=>"92", "name"=>"Ben", "points"=>30, "game_id"=>2, "created_at"=>"2020-05-05T21:28:32.573Z", "updated_at"=>"2020-05-06T08:48:51.097Z"}}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 92], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:23:in `update'
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users_controller.rb:24:in `update'
+  [1m[36mGame Load (0.1ms)[0m  [1m[34mSELECT "games".* FROM "games" WHERE "games"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:24:in `update'
+  [1m[36mUser Update (0.3ms)[0m  [1m[33mUPDATE "users" SET "points" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["points", 30], ["updated_at", "2020-05-06 08:48:56.777364"], ["id", 92]]
+  ↳ app/controllers/users_controller.rb:24:in `update'
+  [1m[35m (0.7ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/users_controller.rb:24:in `update'
+Completed 200 OK in 8ms (Views: 2.2ms | ActiveRecord: 1.3ms | Allocations: 3896)
+
+
+Started GET "/games" for ::1 at 2020-05-06 09:48:56 +0100
+Processing by GamesController#index as */*
+  [1m[36mGame Load (0.1ms)[0m  [1m[34mSELECT "games".* FROM "games"[0m
+  ↳ app/controllers/games_controller.rb:5:in `index'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."game_id" = ?[0m  [["game_id", 1]]
+  ↳ app/controllers/games_controller.rb:5:in `index'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."game_id" = ?[0m  [["game_id", 2]]
+  ↳ app/controllers/games_controller.rb:5:in `index'
+Completed 200 OK in 7ms (Views: 6.8ms | ActiveRecord: 0.5ms | Allocations: 3467)
+
+
+Started PATCH "/users/92" for ::1 at 2020-05-06 09:48:58 +0100
+Processing by UsersController#update as JSON
+  Parameters: {"id"=>"92", "name"=>"Ben", "points"=>40, "game_id"=>2, "created_at"=>"2020-05-05T21:28:32.573Z", "updated_at"=>"2020-05-06T08:48:56.777Z", "user"=>{"id"=>"92", "name"=>"Ben", "points"=>40, "game_id"=>2, "created_at"=>"2020-05-05T21:28:32.573Z", "updated_at"=>"2020-05-06T08:48:56.777Z"}}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 92], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:23:in `update'
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users_controller.rb:24:in `update'
+  [1m[36mGame Load (0.2ms)[0m  [1m[34mSELECT "games".* FROM "games" WHERE "games"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:24:in `update'
+  [1m[36mUser Update (1.0ms)[0m  [1m[33mUPDATE "users" SET "points" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["points", 40], ["updated_at", "2020-05-06 08:48:58.197548"], ["id", 92]]
+  ↳ app/controllers/users_controller.rb:24:in `update'
+  [1m[35m (1.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/users_controller.rb:24:in `update'
+Completed 200 OK in 12ms (Views: 0.4ms | ActiveRecord: 2.5ms | Allocations: 3897)
+
+
+Started GET "/games" for ::1 at 2020-05-06 09:48:58 +0100
+Processing by GamesController#index as */*
+  [1m[36mGame Load (0.3ms)[0m  [1m[34mSELECT "games".* FROM "games"[0m
+  ↳ app/controllers/games_controller.rb:5:in `index'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."game_id" = ?[0m  [["game_id", 1]]
+  ↳ app/controllers/games_controller.rb:5:in `index'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."game_id" = ?[0m  [["game_id", 2]]
+  ↳ app/controllers/games_controller.rb:5:in `index'
+Completed 200 OK in 7ms (Views: 5.8ms | ActiveRecord: 0.5ms | Allocations: 3467)
+
+
+Started PATCH "/users/92" for ::1 at 2020-05-06 09:48:58 +0100
+Processing by UsersController#update as JSON
+  Parameters: {"id"=>"92", "name"=>"Ben", "points"=>50, "game_id"=>2, "created_at"=>"2020-05-05T21:28:32.573Z", "updated_at"=>"2020-05-06T08:48:58.197Z", "user"=>{"id"=>"92", "name"=>"Ben", "points"=>50, "game_id"=>2, "created_at"=>"2020-05-05T21:28:32.573Z", "updated_at"=>"2020-05-06T08:48:58.197Z"}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 92], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:23:in `update'
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users_controller.rb:24:in `update'
+  [1m[36mGame Load (0.1ms)[0m  [1m[34mSELECT "games".* FROM "games" WHERE "games"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:24:in `update'
+  [1m[36mUser Update (0.3ms)[0m  [1m[33mUPDATE "users" SET "points" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["points", 50], ["updated_at", "2020-05-06 08:48:58.901697"], ["id", 92]]
+  ↳ app/controllers/users_controller.rb:24:in `update'
+  [1m[35m (1.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/users_controller.rb:24:in `update'
+Completed 200 OK in 7ms (Views: 0.3ms | ActiveRecord: 1.6ms | Allocations: 3896)
+
+
+Started GET "/games" for ::1 at 2020-05-06 09:48:58 +0100
+Processing by GamesController#index as */*
+  [1m[36mGame Load (0.1ms)[0m  [1m[34mSELECT "games".* FROM "games"[0m
+  ↳ app/controllers/games_controller.rb:5:in `index'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."game_id" = ?[0m  [["game_id", 1]]
+  ↳ app/controllers/games_controller.rb:5:in `index'
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."game_id" = ?[0m  [["game_id", 2]]
+  ↳ app/controllers/games_controller.rb:5:in `index'
+Completed 200 OK in 8ms (Views: 7.6ms | ActiveRecord: 0.6ms | Allocations: 4436)
+
+
+Started PATCH "/users/92" for ::1 at 2020-05-06 09:49:00 +0100
+Processing by UsersController#update as JSON
+  Parameters: {"id"=>"92", "name"=>"Ben", "points"=>60, "game_id"=>2, "created_at"=>"2020-05-05T21:28:32.573Z", "updated_at"=>"2020-05-06T08:48:58.901Z", "user"=>{"id"=>"92", "name"=>"Ben", "points"=>60, "game_id"=>2, "created_at"=>"2020-05-05T21:28:32.573Z", "updated_at"=>"2020-05-06T08:48:58.901Z"}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 92], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:23:in `update'
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users_controller.rb:24:in `update'
+  [1m[36mGame Load (0.1ms)[0m  [1m[34mSELECT "games".* FROM "games" WHERE "games"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:24:in `update'
+  [1m[36mUser Update (0.4ms)[0m  [1m[33mUPDATE "users" SET "points" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["points", 60], ["updated_at", "2020-05-06 08:49:00.217295"], ["id", 92]]
+  ↳ app/controllers/users_controller.rb:24:in `update'
+  [1m[35m (1.5ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/users_controller.rb:24:in `update'
+Completed 200 OK in 10ms (Views: 0.3ms | ActiveRecord: 2.2ms | Allocations: 3896)
+
+
+Started GET "/games" for ::1 at 2020-05-06 09:49:00 +0100
+Processing by GamesController#index as */*
+  [1m[36mGame Load (0.2ms)[0m  [1m[34mSELECT "games".* FROM "games"[0m
+  ↳ app/controllers/games_controller.rb:5:in `index'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."game_id" = ?[0m  [["game_id", 1]]
+  ↳ app/controllers/games_controller.rb:5:in `index'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."game_id" = ?[0m  [["game_id", 2]]
+  ↳ app/controllers/games_controller.rb:5:in `index'
+Completed 200 OK in 6ms (Views: 5.3ms | ActiveRecord: 0.6ms | Allocations: 3467)
+
+
+Started PATCH "/users/92" for ::1 at 2020-05-06 09:49:00 +0100
+Processing by UsersController#update as JSON
+  Parameters: {"id"=>"92", "name"=>"Ben", "points"=>70, "game_id"=>2, "created_at"=>"2020-05-05T21:28:32.573Z", "updated_at"=>"2020-05-06T08:49:00.217Z", "user"=>{"id"=>"92", "name"=>"Ben", "points"=>70, "game_id"=>2, "created_at"=>"2020-05-05T21:28:32.573Z", "updated_at"=>"2020-05-06T08:49:00.217Z"}}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 92], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:23:in `update'
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users_controller.rb:24:in `update'
+  [1m[36mGame Load (0.1ms)[0m  [1m[34mSELECT "games".* FROM "games" WHERE "games"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:24:in `update'
+  [1m[36mUser Update (0.5ms)[0m  [1m[33mUPDATE "users" SET "points" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["points", 70], ["updated_at", "2020-05-06 08:49:00.814842"], ["id", 92]]
+  ↳ app/controllers/users_controller.rb:24:in `update'
+  [1m[35m (0.6ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/users_controller.rb:24:in `update'
+Completed 200 OK in 7ms (Views: 0.3ms | ActiveRecord: 1.4ms | Allocations: 3896)
+
+
+Started GET "/games" for ::1 at 2020-05-06 09:49:00 +0100
+Processing by GamesController#index as */*
+  [1m[36mGame Load (0.2ms)[0m  [1m[34mSELECT "games".* FROM "games"[0m
+  ↳ app/controllers/games_controller.rb:5:in `index'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."game_id" = ?[0m  [["game_id", 1]]
+  ↳ app/controllers/games_controller.rb:5:in `index'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."game_id" = ?[0m  [["game_id", 2]]
+  ↳ app/controllers/games_controller.rb:5:in `index'
+Completed 200 OK in 6ms (Views: 5.5ms | ActiveRecord: 0.5ms | Allocations: 3467)
+
+
+Started PATCH "/users/92" for ::1 at 2020-05-06 09:49:01 +0100
+Processing by UsersController#update as JSON
+  Parameters: {"id"=>"92", "name"=>"Ben", "points"=>80, "game_id"=>2, "created_at"=>"2020-05-05T21:28:32.573Z", "updated_at"=>"2020-05-06T08:49:00.814Z", "user"=>{"id"=>"92", "name"=>"Ben", "points"=>80, "game_id"=>2, "created_at"=>"2020-05-05T21:28:32.573Z", "updated_at"=>"2020-05-06T08:49:00.814Z"}}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 92], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:23:in `update'
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users_controller.rb:24:in `update'
+  [1m[36mGame Load (0.1ms)[0m  [1m[34mSELECT "games".* FROM "games" WHERE "games"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:24:in `update'
+  [1m[36mUser Update (0.3ms)[0m  [1m[33mUPDATE "users" SET "points" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["points", 80], ["updated_at", "2020-05-06 08:49:01.407992"], ["id", 92]]
+  ↳ app/controllers/users_controller.rb:24:in `update'
+  [1m[35m (0.9ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/users_controller.rb:24:in `update'
+Completed 200 OK in 6ms (Views: 0.3ms | ActiveRecord: 1.4ms | Allocations: 3896)
+
+
+Started GET "/games" for ::1 at 2020-05-06 09:49:01 +0100
+Processing by GamesController#index as */*
+  [1m[36mGame Load (0.2ms)[0m  [1m[34mSELECT "games".* FROM "games"[0m
+  ↳ app/controllers/games_controller.rb:5:in `index'
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."game_id" = ?[0m  [["game_id", 1]]
+  ↳ app/controllers/games_controller.rb:5:in `index'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."game_id" = ?[0m  [["game_id", 2]]
+  ↳ app/controllers/games_controller.rb:5:in `index'
+Completed 200 OK in 6ms (Views: 5.4ms | ActiveRecord: 0.6ms | Allocations: 3467)
+
+
+Started PATCH "/users/92" for ::1 at 2020-05-06 09:49:02 +0100
+Processing by UsersController#update as JSON
+  Parameters: {"id"=>"92", "name"=>"Ben", "points"=>90, "game_id"=>2, "created_at"=>"2020-05-05T21:28:32.573Z", "updated_at"=>"2020-05-06T08:49:01.407Z", "user"=>{"id"=>"92", "name"=>"Ben", "points"=>90, "game_id"=>2, "created_at"=>"2020-05-05T21:28:32.573Z", "updated_at"=>"2020-05-06T08:49:01.407Z"}}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 92], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:23:in `update'
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users_controller.rb:24:in `update'
+  [1m[36mGame Load (0.1ms)[0m  [1m[34mSELECT "games".* FROM "games" WHERE "games"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:24:in `update'
+  [1m[36mUser Update (0.3ms)[0m  [1m[33mUPDATE "users" SET "points" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["points", 90], ["updated_at", "2020-05-06 08:49:02.227482"], ["id", 92]]
+  ↳ app/controllers/users_controller.rb:24:in `update'
+  [1m[35m (1.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/users_controller.rb:24:in `update'
+Completed 200 OK in 7ms (Views: 0.3ms | ActiveRecord: 1.5ms | Allocations: 3896)
+
+
+Started GET "/games" for ::1 at 2020-05-06 09:49:02 +0100
+Processing by GamesController#index as */*
+  [1m[36mGame Load (0.1ms)[0m  [1m[34mSELECT "games".* FROM "games"[0m
+  ↳ app/controllers/games_controller.rb:5:in `index'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."game_id" = ?[0m  [["game_id", 1]]
+  ↳ app/controllers/games_controller.rb:5:in `index'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."game_id" = ?[0m  [["game_id", 2]]
+  ↳ app/controllers/games_controller.rb:5:in `index'
+Completed 200 OK in 4ms (Views: 4.0ms | ActiveRecord: 0.3ms | Allocations: 3467)
+
+
+Started GET "/games" for ::1 at 2020-05-06 09:49:04 +0100
+Processing by GamesController#index as */*
+  [1m[36mGame Load (0.5ms)[0m  [1m[34mSELECT "games".* FROM "games"[0m
+  ↳ app/controllers/games_controller.rb:5:in `index'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."game_id" = ?[0m  [["game_id", 1]]
+  ↳ app/controllers/games_controller.rb:5:in `index'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."game_id" = ?[0m  [["game_id", 2]]
+  ↳ app/controllers/games_controller.rb:5:in `index'
+Completed 200 OK in 11ms (Views: 9.8ms | ActiveRecord: 0.9ms | Allocations: 3467)
+
+
+Started PATCH "/users/92" for ::1 at 2020-05-06 09:49:05 +0100
+Processing by UsersController#update as JSON
+  Parameters: {"id"=>"92", "name"=>"Ben", "points"=>100, "game_id"=>2, "created_at"=>"2020-05-05T21:28:32.573Z", "updated_at"=>"2020-05-06T08:49:02.227Z", "user"=>{"id"=>"92", "name"=>"Ben", "points"=>100, "game_id"=>2, "created_at"=>"2020-05-05T21:28:32.573Z", "updated_at"=>"2020-05-06T08:49:02.227Z"}}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 92], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:23:in `update'
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users_controller.rb:24:in `update'
+  [1m[36mGame Load (0.1ms)[0m  [1m[34mSELECT "games".* FROM "games" WHERE "games"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:24:in `update'
+  [1m[36mUser Update (0.4ms)[0m  [1m[33mUPDATE "users" SET "points" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["points", 100], ["updated_at", "2020-05-06 08:49:05.986865"], ["id", 92]]
+  ↳ app/controllers/users_controller.rb:24:in `update'
+  [1m[35m (0.9ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/users_controller.rb:24:in `update'
+Completed 200 OK in 13ms (Views: 0.3ms | ActiveRecord: 1.7ms | Allocations: 3896)
+
+
+Started GET "/games" for ::1 at 2020-05-06 09:49:06 +0100
+Processing by GamesController#index as */*
+  [1m[36mGame Load (0.1ms)[0m  [1m[34mSELECT "games".* FROM "games"[0m
+  ↳ app/controllers/games_controller.rb:5:in `index'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."game_id" = ?[0m  [["game_id", 1]]
+  ↳ app/controllers/games_controller.rb:5:in `index'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."game_id" = ?[0m  [["game_id", 2]]
+  ↳ app/controllers/games_controller.rb:5:in `index'
+Completed 200 OK in 5ms (Views: 4.0ms | ActiveRecord: 0.3ms | Allocations: 3468)
+
+
+Started DELETE "/users/92" for ::1 at 2020-05-06 09:49:18 +0100
+Processing by UsersController#destroy as */*
+  Parameters: {"id"=>"92"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 92], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:30:in `destroy'
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users_controller.rb:31:in `destroy'
+  [1m[36mUser Destroy (0.6ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = ?[0m  [["id", 92]]
+  ↳ app/controllers/users_controller.rb:31:in `destroy'
+  [1m[35m (0.8ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/users_controller.rb:31:in `destroy'
+Completed 200 OK in 6ms (Views: 0.1ms | ActiveRecord: 1.7ms | Allocations: 2201)
+
+
+Started POST "/users/" for ::1 at 2020-05-06 09:49:21 +0100
+Processing by UsersController#create as JSON
+  Parameters: {"name"=>"Ben", "points"=>0, "game_id"=>2, "user"=>{"name"=>"Ben", "points"=>0, "game_id"=>2}}
+Started POST "/users/" for ::1 at 2020-05-06 09:49:21 +0100
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users_controller.rb:18:in `create'
+  [1m[36mGame Load (0.2ms)[0m  [1m[34mSELECT "games".* FROM "games" WHERE "games"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:18:in `create'
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[36mUser Create (0.5ms)[0m  [1m[32mINSERT INTO "users" ("name", "points", "game_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Ben"], ["points", 0], ["game_id", 2], ["created_at", "2020-05-06 08:49:21.897676"], ["updated_at", "2020-05-06 08:49:21.897676"]]
+  ↳ app/controllers/users_controller.rb:18:in `create'
+Processing by UsersController#create as JSON
+  [1m[35m (1.1ms)[0m  [1m[36mcommit transaction[0m
+  Parameters: {"name"=>"Ben", "points"=>0, "game_id"=>2, "user"=>{"name"=>"Ben", "points"=>0, "game_id"=>2}}
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users_controller.rb:18:in `create'
+  ↳ app/controllers/users_controller.rb:18:in `create'
+Completed 200 OK in 17ms (Views: 0.3ms | ActiveRecord: 1.9ms | Allocations: 5585)
+
+
+  [1m[36mGame Load (0.2ms)[0m  [1m[34mSELECT "games".* FROM "games" WHERE "games"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:18:in `create'
+  [1m[36mUser Create (0.5ms)[0m  [1m[32mINSERT INTO "users" ("name", "points", "game_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Ben"], ["points", 0], ["game_id", 2], ["created_at", "2020-05-06 08:49:21.906570"], ["updated_at", "2020-05-06 08:49:21.906570"]]
+  ↳ app/controllers/users_controller.rb:18:in `create'
+  [1m[35m (1.3ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/users_controller.rb:18:in `create'
+Completed 200 OK in 9ms (Views: 0.5ms | ActiveRecord: 2.0ms | Allocations: 4078)
+
+
+Started GET "/games" for ::1 at 2020-05-06 09:49:26 +0100
+Processing by GamesController#index as */*
+  [1m[36mGame Load (0.3ms)[0m  [1m[34mSELECT "games".* FROM "games"[0m
+  ↳ app/controllers/games_controller.rb:5:in `index'
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."game_id" = ?[0m  [["game_id", 1]]
+  ↳ app/controllers/games_controller.rb:5:in `index'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."game_id" = ?[0m  [["game_id", 2]]
+  ↳ app/controllers/games_controller.rb:5:in `index'
+Completed 200 OK in 11ms (Views: 10.1ms | ActiveRecord: 0.8ms | Allocations: 3639)
+
+
+Started DELETE "/users/101" for ::1 at 2020-05-06 09:49:27 +0100
+Processing by UsersController#destroy as */*
+  Parameters: {"id"=>"101"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 101], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:30:in `destroy'
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users_controller.rb:31:in `destroy'
+  [1m[36mUser Destroy (0.4ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = ?[0m  [["id", 101]]
+  ↳ app/controllers/users_controller.rb:31:in `destroy'
+  [1m[35m (1.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/users_controller.rb:31:in `destroy'
+Completed 200 OK in 6ms (Views: 0.1ms | ActiveRecord: 1.9ms | Allocations: 2218)
+
+
+Started POST "/users/" for ::1 at 2020-05-06 09:49:30 +0100
+Processing by UsersController#create as JSON
+  Parameters: {"name"=>"Ben", "points"=>0, "game_id"=>2, "user"=>{"name"=>"Ben", "points"=>0, "game_id"=>2}}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users_controller.rb:18:in `create'
+  [1m[36mGame Load (0.2ms)[0m  [1m[34mSELECT "games".* FROM "games" WHERE "games"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:18:in `create'
+  [1m[36mUser Create (0.5ms)[0m  [1m[32mINSERT INTO "users" ("name", "points", "game_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Ben"], ["points", 0], ["game_id", 2], ["created_at", "2020-05-06 08:49:30.689206"], ["updated_at", "2020-05-06 08:49:30.689206"]]
+  ↳ app/controllers/users_controller.rb:18:in `create'
+  [1m[35m (1.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/users_controller.rb:18:in `create'
+Completed 200 OK in 12ms (Views: 2.8ms | ActiveRecord: 2.0ms | Allocations: 3268)
+
+
+Started DELETE "/users/102" for ::1 at 2020-05-06 09:49:32 +0100
+Processing by UsersController#destroy as */*
+  Parameters: {"id"=>"102"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 102], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:30:in `destroy'
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users_controller.rb:31:in `destroy'
+  [1m[36mUser Destroy (0.3ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = ?[0m  [["id", 102]]
+  ↳ app/controllers/users_controller.rb:31:in `destroy'
+  [1m[35m (1.7ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/users_controller.rb:31:in `destroy'
+Completed 200 OK in 6ms (Views: 0.4ms | ActiveRecord: 2.1ms | Allocations: 2201)
+
+
+Started DELETE "/users/100" for ::1 at 2020-05-06 09:49:32 +0100
+Processing by UsersController#destroy as */*
+  Parameters: {"id"=>"100"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 100], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:30:in `destroy'
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users_controller.rb:31:in `destroy'
+  [1m[36mUser Destroy (0.9ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = ?[0m  [["id", 100]]
+  ↳ app/controllers/users_controller.rb:31:in `destroy'
+  [1m[35m (1.6ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/users_controller.rb:31:in `destroy'
+Completed 200 OK in 7ms (Views: 0.2ms | ActiveRecord: 2.8ms | Allocations: 2201)
+
+
+Started GET "/games" for ::1 at 2020-05-06 09:49:35 +0100
+Processing by GamesController#index as */*
+  [1m[36mGame Load (0.4ms)[0m  [1m[34mSELECT "games".* FROM "games"[0m
+  ↳ app/controllers/games_controller.rb:5:in `index'
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."game_id" = ?[0m  [["game_id", 1]]
+  ↳ app/controllers/games_controller.rb:5:in `index'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."game_id" = ?[0m  [["game_id", 2]]
+  ↳ app/controllers/games_controller.rb:5:in `index'
+Completed 200 OK in 13ms (Views: 11.9ms | ActiveRecord: 1.1ms | Allocations: 3326)
+
+
+Started POST "/users/" for ::1 at 2020-05-06 09:49:37 +0100
+Processing by UsersController#create as JSON
+  Parameters: {"name"=>"Ben", "points"=>0, "game_id"=>2, "user"=>{"name"=>"Ben", "points"=>0, "game_id"=>2}}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users_controller.rb:18:in `create'
+  [1m[36mGame Load (0.2ms)[0m  [1m[34mSELECT "games".* FROM "games" WHERE "games"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:18:in `create'
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("name", "points", "game_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", "Ben"], ["points", 0], ["game_id", 2], ["created_at", "2020-05-06 08:49:37.725174"], ["updated_at", "2020-05-06 08:49:37.725174"]]
+  ↳ app/controllers/users_controller.rb:18:in `create'
+  [1m[35m (1.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/users_controller.rb:18:in `create'
+Completed 200 OK in 7ms (Views: 0.3ms | ActiveRecord: 1.7ms | Allocations: 3268)
+
+
+Started GET "/games" for ::1 at 2020-05-06 09:50:06 +0100
+Processing by GamesController#index as */*
+  [1m[36mGame Load (0.2ms)[0m  [1m[34mSELECT "games".* FROM "games"[0m
+  ↳ app/controllers/games_controller.rb:5:in `index'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."game_id" = ?[0m  [["game_id", 1]]
+  ↳ app/controllers/games_controller.rb:5:in `index'
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."game_id" = ?[0m  [["game_id", 2]]
+  ↳ app/controllers/games_controller.rb:5:in `index'
+Completed 200 OK in 11ms (Views: 10.1ms | ActiveRecord: 0.9ms | Allocations: 3467)
+
+
+Started GET "/games" for ::1 at 2020-05-06 09:53:33 +0100
+Processing by GamesController#index as */*
+  [1m[36mGame Load (0.2ms)[0m  [1m[34mSELECT "games".* FROM "games"[0m
+  ↳ app/controllers/games_controller.rb:5:in `index'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."game_id" = ?[0m  [["game_id", 1]]
+  ↳ app/controllers/games_controller.rb:5:in `index'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."game_id" = ?[0m  [["game_id", 2]]
+  ↳ app/controllers/games_controller.rb:5:in `index'
+Completed 200 OK in 17ms (Views: 15.9ms | ActiveRecord: 0.7ms | Allocations: 3467)
+
+
+Started GET "/games" for ::1 at 2020-05-06 10:03:35 +0100
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by GamesController#index as */*
+  [1m[36mGame Load (0.9ms)[0m  [1m[34mSELECT "games".* FROM "games"[0m
+  ↳ app/controllers/games_controller.rb:5:in `index'
+  [1m[36mUser Load (1.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."game_id" = ?[0m  [["game_id", 1]]
+  ↳ app/controllers/games_controller.rb:5:in `index'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."game_id" = ?[0m  [["game_id", 2]]
+  ↳ app/controllers/games_controller.rb:5:in `index'
+Completed 200 OK in 10ms (Views: 7.9ms | ActiveRecord: 2.3ms | Allocations: 3501)
+
+
+Started GET "/games" for ::1 at 2020-05-06 10:04:36 +0100
+Processing by GamesController#index as */*
+  [1m[36mGame Load (0.2ms)[0m  [1m[34mSELECT "games".* FROM "games"[0m
+  ↳ app/controllers/games_controller.rb:5:in `index'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."game_id" = ?[0m  [["game_id", 1]]
+  ↳ app/controllers/games_controller.rb:5:in `index'
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."game_id" = ?[0m  [["game_id", 2]]
+  ↳ app/controllers/games_controller.rb:5:in `index'
+Completed 200 OK in 12ms (Views: 10.5ms | ActiveRecord: 0.8ms | Allocations: 3467)
+
+
+Started GET "/games" for ::1 at 2020-05-06 10:04:59 +0100
+Processing by GamesController#index as */*
+  [1m[36mGame Load (0.1ms)[0m  [1m[34mSELECT "games".* FROM "games"[0m
+  ↳ app/controllers/games_controller.rb:5:in `index'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."game_id" = ?[0m  [["game_id", 1]]
+  ↳ app/controllers/games_controller.rb:5:in `index'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."game_id" = ?[0m  [["game_id", 2]]
+  ↳ app/controllers/games_controller.rb:5:in `index'
+Completed 200 OK in 8ms (Views: 7.0ms | ActiveRecord: 0.4ms | Allocations: 3467)
+
+
+Started GET "/games" for ::1 at 2020-05-06 10:05:21 +0100
+Processing by GamesController#index as */*
+  [1m[36mGame Load (0.3ms)[0m  [1m[34mSELECT "games".* FROM "games"[0m
+  ↳ app/controllers/games_controller.rb:5:in `index'
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."game_id" = ?[0m  [["game_id", 1]]
+  ↳ app/controllers/games_controller.rb:5:in `index'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."game_id" = ?[0m  [["game_id", 2]]
+  ↳ app/controllers/games_controller.rb:5:in `index'
+Completed 200 OK in 10ms (Views: 8.7ms | ActiveRecord: 0.8ms | Allocations: 3467)
+
+
+Started GET "/games" for ::1 at 2020-05-06 10:05:33 +0100
+Processing by GamesController#index as */*
+  [1m[36mGame Load (0.2ms)[0m  [1m[34mSELECT "games".* FROM "games"[0m
+  ↳ app/controllers/games_controller.rb:5:in `index'
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."game_id" = ?[0m  [["game_id", 1]]
+  ↳ app/controllers/games_controller.rb:5:in `index'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."game_id" = ?[0m  [["game_id", 2]]
+  ↳ app/controllers/games_controller.rb:5:in `index'
+Completed 200 OK in 14ms (Views: 12.8ms | ActiveRecord: 0.7ms | Allocations: 3467)
+
+
+Started GET "/games" for ::1 at 2020-05-06 10:05:33 +0100
+Processing by GamesController#index as */*
+  [1m[36mGame Load (0.1ms)[0m  [1m[34mSELECT "games".* FROM "games"[0m
+  ↳ app/controllers/games_controller.rb:5:in `index'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."game_id" = ?[0m  [["game_id", 1]]
+  ↳ app/controllers/games_controller.rb:5:in `index'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."game_id" = ?[0m  [["game_id", 2]]
+  ↳ app/controllers/games_controller.rb:5:in `index'
+Completed 200 OK in 10ms (Views: 8.8ms | ActiveRecord: 0.6ms | Allocations: 3467)
+
+
+Started GET "/games" for ::1 at 2020-05-06 10:05:39 +0100
+Processing by GamesController#index as */*
+  [1m[36mGame Load (0.3ms)[0m  [1m[34mSELECT "games".* FROM "games"[0m
+  ↳ app/controllers/games_controller.rb:5:in `index'
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."game_id" = ?[0m  [["game_id", 1]]
+  ↳ app/controllers/games_controller.rb:5:in `index'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."game_id" = ?[0m  [["game_id", 2]]
+  ↳ app/controllers/games_controller.rb:5:in `index'
+Completed 200 OK in 11ms (Views: 9.4ms | ActiveRecord: 0.9ms | Allocations: 3467)
+
+
+Started GET "/games" for ::1 at 2020-05-06 10:05:39 +0100
+Processing by GamesController#index as */*
+  [1m[36mGame Load (0.2ms)[0m  [1m[34mSELECT "games".* FROM "games"[0m
+  ↳ app/controllers/games_controller.rb:5:in `index'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."game_id" = ?[0m  [["game_id", 1]]
+  ↳ app/controllers/games_controller.rb:5:in `index'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."game_id" = ?[0m  [["game_id", 2]]
+  ↳ app/controllers/games_controller.rb:5:in `index'
+Completed 200 OK in 10ms (Views: 9.1ms | ActiveRecord: 0.5ms | Allocations: 3467)
+
+
+Started GET "/games" for ::1 at 2020-05-06 10:05:50 +0100
+Processing by GamesController#index as */*
+  [1m[36mGame Load (0.2ms)[0m  [1m[34mSELECT "games".* FROM "games"[0m
+  ↳ app/controllers/games_controller.rb:5:in `index'
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."game_id" = ?[0m  [["game_id", 1]]
+  ↳ app/controllers/games_controller.rb:5:in `index'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."game_id" = ?[0m  [["game_id", 2]]
+  ↳ app/controllers/games_controller.rb:5:in `index'
+Completed 200 OK in 8ms (Views: 7.1ms | ActiveRecord: 0.9ms | Allocations: 3467)
+
+
+Started GET "/games" for ::1 at 2020-05-06 10:06:04 +0100
+Processing by GamesController#index as */*
+  [1m[36mGame Load (0.2ms)[0m  [1m[34mSELECT "games".* FROM "games"[0m
+  ↳ app/controllers/games_controller.rb:5:in `index'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."game_id" = ?[0m  [["game_id", 1]]
+  ↳ app/controllers/games_controller.rb:5:in `index'
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."game_id" = ?[0m  [["game_id", 2]]
+  ↳ app/controllers/games_controller.rb:5:in `index'
+Completed 200 OK in 10ms (Views: 8.9ms | ActiveRecord: 0.7ms | Allocations: 3467)
+
+
+Started GET "/games" for ::1 at 2020-05-06 10:06:07 +0100
+Processing by GamesController#index as */*
+  [1m[36mGame Load (0.3ms)[0m  [1m[34mSELECT "games".* FROM "games"[0m
+  ↳ app/controllers/games_controller.rb:5:in `index'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."game_id" = ?[0m  [["game_id", 1]]
+  ↳ app/controllers/games_controller.rb:5:in `index'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."game_id" = ?[0m  [["game_id", 2]]
+  ↳ app/controllers/games_controller.rb:5:in `index'
+Completed 200 OK in 11ms (Views: 10.3ms | ActiveRecord: 0.7ms | Allocations: 3467)
+
+
+Started GET "/games" for ::1 at 2020-05-06 10:07:03 +0100
+Processing by GamesController#index as */*
+  [1m[36mGame Load (0.3ms)[0m  [1m[34mSELECT "games".* FROM "games"[0m
+  ↳ app/controllers/games_controller.rb:5:in `index'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."game_id" = ?[0m  [["game_id", 1]]
+  ↳ app/controllers/games_controller.rb:5:in `index'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."game_id" = ?[0m  [["game_id", 2]]
+  ↳ app/controllers/games_controller.rb:5:in `index'
+Completed 200 OK in 8ms (Views: 7.0ms | ActiveRecord: 0.6ms | Allocations: 3467)
+
+
+Started GET "/games" for ::1 at 2020-05-06 10:07:11 +0100
+Processing by GamesController#index as */*
+  [1m[36mGame Load (0.2ms)[0m  [1m[34mSELECT "games".* FROM "games"[0m
+  ↳ app/controllers/games_controller.rb:5:in `index'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."game_id" = ?[0m  [["game_id", 1]]
+  ↳ app/controllers/games_controller.rb:5:in `index'
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."game_id" = ?[0m  [["game_id", 2]]
+  ↳ app/controllers/games_controller.rb:5:in `index'
+Completed 200 OK in 12ms (Views: 11.0ms | ActiveRecord: 0.7ms | Allocations: 3467)
+
+
+Started GET "/games" for ::1 at 2020-05-06 10:07:16 +0100
+Processing by GamesController#index as */*
+  [1m[36mGame Load (0.1ms)[0m  [1m[34mSELECT "games".* FROM "games"[0m
+  ↳ app/controllers/games_controller.rb:5:in `index'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."game_id" = ?[0m  [["game_id", 1]]
+  ↳ app/controllers/games_controller.rb:5:in `index'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."game_id" = ?[0m  [["game_id", 2]]
+  ↳ app/controllers/games_controller.rb:5:in `index'
+Completed 200 OK in 6ms (Views: 5.2ms | ActiveRecord: 0.3ms | Allocations: 3467)
+
+
+Started GET "/games" for ::1 at 2020-05-06 10:07:36 +0100
+Processing by GamesController#index as */*
+  [1m[36mGame Load (0.1ms)[0m  [1m[34mSELECT "games".* FROM "games"[0m
+  ↳ app/controllers/games_controller.rb:5:in `index'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."game_id" = ?[0m  [["game_id", 1]]
+  ↳ app/controllers/games_controller.rb:5:in `index'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."game_id" = ?[0m  [["game_id", 2]]
+  ↳ app/controllers/games_controller.rb:5:in `index'
+Completed 200 OK in 8ms (Views: 7.7ms | ActiveRecord: 0.4ms | Allocations: 3467)
+
+
+Started GET "/games" for ::1 at 2020-05-06 10:08:29 +0100
+Processing by GamesController#index as */*
+  [1m[36mGame Load (0.2ms)[0m  [1m[34mSELECT "games".* FROM "games"[0m
+  ↳ app/controllers/games_controller.rb:5:in `index'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."game_id" = ?[0m  [["game_id", 1]]
+  ↳ app/controllers/games_controller.rb:5:in `index'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."game_id" = ?[0m  [["game_id", 2]]
+  ↳ app/controllers/games_controller.rb:5:in `index'
+Completed 200 OK in 9ms (Views: 8.5ms | ActiveRecord: 0.5ms | Allocations: 3467)
+
+
+Started POST "/users/" for ::1 at 2020-05-06 10:08:42 +0100
+Processing by UsersController#create as JSON
+  Parameters: {"name"=>"", "points"=>0, "game_id"=>2, "user"=>{"name"=>"", "points"=>0, "game_id"=>2}}
+  [1m[35m (0.4ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users_controller.rb:18:in `create'
+  [1m[36mGame Load (0.2ms)[0m  [1m[34mSELECT "games".* FROM "games" WHERE "games"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:18:in `create'
+  [1m[36mUser Create (0.5ms)[0m  [1m[32mINSERT INTO "users" ("name", "points", "game_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", ""], ["points", 0], ["game_id", 2], ["created_at", "2020-05-06 09:08:42.586202"], ["updated_at", "2020-05-06 09:08:42.586202"]]
+  ↳ app/controllers/users_controller.rb:18:in `create'
+  [1m[35m (0.7ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/users_controller.rb:18:in `create'
+Completed 200 OK in 9ms (Views: 0.3ms | ActiveRecord: 1.7ms | Allocations: 3281)
+
+
+Started POST "/users/" for ::1 at 2020-05-06 10:08:43 +0100
+Processing by UsersController#create as JSON
+  Parameters: {"name"=>"", "points"=>0, "game_id"=>2, "user"=>{"name"=>"", "points"=>0, "game_id"=>2}}
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users_controller.rb:18:in `create'
+  [1m[36mGame Load (0.2ms)[0m  [1m[34mSELECT "games".* FROM "games" WHERE "games"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:18:in `create'
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("name", "points", "game_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["name", ""], ["points", 0], ["game_id", 2], ["created_at", "2020-05-06 09:08:43.341889"], ["updated_at", "2020-05-06 09:08:43.341889"]]
+  ↳ app/controllers/users_controller.rb:18:in `create'
+  [1m[35m (1.0ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/users_controller.rb:18:in `create'
+Completed 200 OK in 19ms (Views: 0.3ms | ActiveRecord: 1.6ms | Allocations: 3271)
+
+
+Started DELETE "/users/104" for ::1 at 2020-05-06 10:08:44 +0100
+Processing by UsersController#destroy as */*
+  Parameters: {"id"=>"104"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 104], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:30:in `destroy'
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users_controller.rb:31:in `destroy'
+  [1m[36mUser Destroy (0.3ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = ?[0m  [["id", 104]]
+  ↳ app/controllers/users_controller.rb:31:in `destroy'
+  [1m[35m (1.1ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/users_controller.rb:31:in `destroy'
+Completed 200 OK in 5ms (Views: 0.2ms | ActiveRecord: 1.9ms | Allocations: 2218)
+
+
+Started DELETE "/users/105" for ::1 at 2020-05-06 10:08:45 +0100
+Processing by UsersController#destroy as */*
+  Parameters: {"id"=>"105"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 105], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:30:in `destroy'
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/users_controller.rb:31:in `destroy'
+  [1m[36mUser Destroy (0.3ms)[0m  [1m[31mDELETE FROM "users" WHERE "users"."id" = ?[0m  [["id", 105]]
+  ↳ app/controllers/users_controller.rb:31:in `destroy'
+  [1m[35m (2.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/users_controller.rb:31:in `destroy'
+Completed 200 OK in 6ms (Views: 0.1ms | ActiveRecord: 2.8ms | Allocations: 2201)
+
+
+Started GET "/games" for ::1 at 2020-05-06 10:08:47 +0100
+Processing by GamesController#index as */*
+  [1m[36mGame Load (0.2ms)[0m  [1m[34mSELECT "games".* FROM "games"[0m
+  ↳ app/controllers/games_controller.rb:5:in `index'
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."game_id" = ?[0m  [["game_id", 1]]
+  ↳ app/controllers/games_controller.rb:5:in `index'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."game_id" = ?[0m  [["game_id", 2]]
+  ↳ app/controllers/games_controller.rb:5:in `index'
+Completed 200 OK in 9ms (Views: 7.9ms | ActiveRecord: 0.6ms | Allocations: 3467)
+
+
+Started GET "/games" for ::1 at 2020-05-06 10:19:15 +0100
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by GamesController#index as */*
+  [1m[36mGame Load (0.7ms)[0m  [1m[34mSELECT "games".* FROM "games"[0m
+  ↳ app/controllers/games_controller.rb:5:in `index'
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."game_id" = ?[0m  [["game_id", 1]]
+  ↳ app/controllers/games_controller.rb:5:in `index'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."game_id" = ?[0m  [["game_id", 2]]
+  ↳ app/controllers/games_controller.rb:5:in `index'
+Completed 200 OK in 8ms (Views: 5.5ms | ActiveRecord: 1.7ms | Allocations: 3500)
+
+
+Started GET "/games" for ::1 at 2020-05-06 10:20:01 +0100
+Processing by GamesController#index as */*
+  [1m[36mGame Load (0.2ms)[0m  [1m[34mSELECT "games".* FROM "games"[0m
+  ↳ app/controllers/games_controller.rb:5:in `index'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."game_id" = ?[0m  [["game_id", 1]]
+  ↳ app/controllers/games_controller.rb:5:in `index'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."game_id" = ?[0m  [["game_id", 2]]
+  ↳ app/controllers/games_controller.rb:5:in `index'
+Completed 200 OK in 9ms (Views: 8.1ms | ActiveRecord: 0.5ms | Allocations: 3467)
+
+
+Started GET "/games" for ::1 at 2020-05-06 10:36:52 +0100
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by GamesController#index as */*
+  [1m[36mGame Load (0.7ms)[0m  [1m[34mSELECT "games".* FROM "games"[0m
+  ↳ app/controllers/games_controller.rb:5:in `index'
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."game_id" = ?[0m  [["game_id", 1]]
+  ↳ app/controllers/games_controller.rb:5:in `index'
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."game_id" = ?[0m  [["game_id", 2]]
+  ↳ app/controllers/games_controller.rb:5:in `index'
+Completed 200 OK in 14ms (Views: 11.0ms | ActiveRecord: 2.1ms | Allocations: 3500)
+
+
+Started GET "/games" for ::1 at 2020-05-06 10:38:10 +0100
+Processing by GamesController#index as */*
+  [1m[36mGame Load (0.1ms)[0m  [1m[34mSELECT "games".* FROM "games"[0m
+  ↳ app/controllers/games_controller.rb:5:in `index'
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."game_id" = ?[0m  [["game_id", 1]]
+  ↳ app/controllers/games_controller.rb:5:in `index'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."game_id" = ?[0m  [["game_id", 2]]
+  ↳ app/controllers/games_controller.rb:5:in `index'
+Completed 200 OK in 13ms (Views: 11.5ms | ActiveRecord: 0.7ms | Allocations: 3467)
+
+
+Started GET "/games" for ::1 at 2020-05-06 10:39:03 +0100
+Processing by GamesController#index as */*
+  [1m[36mGame Load (0.3ms)[0m  [1m[34mSELECT "games".* FROM "games"[0m
+  ↳ app/controllers/games_controller.rb:5:in `index'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."game_id" = ?[0m  [["game_id", 1]]
+  ↳ app/controllers/games_controller.rb:5:in `index'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."game_id" = ?[0m  [["game_id", 2]]
+  ↳ app/controllers/games_controller.rb:5:in `index'
+Completed 200 OK in 11ms (Views: 10.1ms | ActiveRecord: 0.6ms | Allocations: 3467)
+
+
+Started GET "/games" for ::1 at 2020-05-06 10:39:54 +0100
+Processing by GamesController#index as */*
+  [1m[36mGame Load (0.2ms)[0m  [1m[34mSELECT "games".* FROM "games"[0m
+  ↳ app/controllers/games_controller.rb:5:in `index'
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."game_id" = ?[0m  [["game_id", 1]]
+  ↳ app/controllers/games_controller.rb:5:in `index'
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."game_id" = ?[0m  [["game_id", 2]]
+  ↳ app/controllers/games_controller.rb:5:in `index'
+Completed 200 OK in 15ms (Views: 13.9ms | ActiveRecord: 0.8ms | Allocations: 3467)
+
+
+Started GET "/games" for ::1 at 2020-05-06 10:39:55 +0100
+Processing by GamesController#index as */*
+  [1m[36mGame Load (0.2ms)[0m  [1m[34mSELECT "games".* FROM "games"[0m
+  ↳ app/controllers/games_controller.rb:5:in `index'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."game_id" = ?[0m  [["game_id", 1]]
+  ↳ app/controllers/games_controller.rb:5:in `index'
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."game_id" = ?[0m  [["game_id", 2]]
+  ↳ app/controllers/games_controller.rb:5:in `index'
+Completed 200 OK in 13ms (Views: 11.9ms | ActiveRecord: 0.7ms | Allocations: 3467)
+
+
+Started GET "/games" for ::1 at 2020-05-06 10:39:55 +0100
+Processing by GamesController#index as */*
+  [1m[36mGame Load (0.2ms)[0m  [1m[34mSELECT "games".* FROM "games"[0m
+  ↳ app/controllers/games_controller.rb:5:in `index'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."game_id" = ?[0m  [["game_id", 1]]
+  ↳ app/controllers/games_controller.rb:5:in `index'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."game_id" = ?[0m  [["game_id", 2]]
+  ↳ app/controllers/games_controller.rb:5:in `index'
+Completed 200 OK in 13ms (Views: 12.0ms | ActiveRecord: 0.5ms | Allocations: 3467)
+
+
+Started GET "/games" for ::1 at 2020-05-06 10:39:55 +0100
+Processing by GamesController#index as */*
+  [1m[36mGame Load (0.2ms)[0m  [1m[34mSELECT "games".* FROM "games"[0m
+  ↳ app/controllers/games_controller.rb:5:in `index'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."game_id" = ?[0m  [["game_id", 1]]
+  ↳ app/controllers/games_controller.rb:5:in `index'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."game_id" = ?[0m  [["game_id", 2]]
+  ↳ app/controllers/games_controller.rb:5:in `index'
+Completed 200 OK in 7ms (Views: 6.6ms | ActiveRecord: 0.4ms | Allocations: 3467)
+
+
+Started GET "/games" for ::1 at 2020-05-06 10:39:56 +0100
+Processing by GamesController#index as */*
+  [1m[36mGame Load (0.1ms)[0m  [1m[34mSELECT "games".* FROM "games"[0m
+  ↳ app/controllers/games_controller.rb:5:in `index'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."game_id" = ?[0m  [["game_id", 1]]
+  ↳ app/controllers/games_controller.rb:5:in `index'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."game_id" = ?[0m  [["game_id", 2]]
+  ↳ app/controllers/games_controller.rb:5:in `index'
+Completed 200 OK in 8ms (Views: 7.4ms | ActiveRecord: 0.4ms | Allocations: 3467)
+
+
+Started GET "/games" for ::1 at 2020-05-06 10:40:14 +0100
+Processing by GamesController#index as */*
+  [1m[36mGame Load (0.2ms)[0m  [1m[34mSELECT "games".* FROM "games"[0m
+  ↳ app/controllers/games_controller.rb:5:in `index'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."game_id" = ?[0m  [["game_id", 1]]
+  ↳ app/controllers/games_controller.rb:5:in `index'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."game_id" = ?[0m  [["game_id", 2]]
+  ↳ app/controllers/games_controller.rb:5:in `index'
+Completed 200 OK in 11ms (Views: 9.2ms | ActiveRecord: 0.6ms | Allocations: 3467)
+
+
+Started GET "/games" for ::1 at 2020-05-06 10:41:10 +0100
+Processing by GamesController#index as */*
+  [1m[36mGame Load (0.5ms)[0m  [1m[34mSELECT "games".* FROM "games"[0m
+  ↳ app/controllers/games_controller.rb:5:in `index'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."game_id" = ?[0m  [["game_id", 1]]
+  ↳ app/controllers/games_controller.rb:5:in `index'
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."game_id" = ?[0m  [["game_id", 2]]
+  ↳ app/controllers/games_controller.rb:5:in `index'
+Completed 200 OK in 49ms (Views: 48.2ms | ActiveRecord: 0.9ms | Allocations: 3470)
+
+
+Started GET "/games" for ::1 at 2020-05-06 10:41:35 +0100
+Processing by GamesController#index as */*
+  [1m[36mGame Load (0.2ms)[0m  [1m[34mSELECT "games".* FROM "games"[0m
+  ↳ app/controllers/games_controller.rb:5:in `index'
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."game_id" = ?[0m  [["game_id", 1]]
+  ↳ app/controllers/games_controller.rb:5:in `index'
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."game_id" = ?[0m  [["game_id", 2]]
+  ↳ app/controllers/games_controller.rb:5:in `index'
+Completed 200 OK in 11ms (Views: 9.9ms | ActiveRecord: 0.6ms | Allocations: 3467)
+
+
+Started GET "/games" for ::1 at 2020-05-06 10:41:53 +0100
+Processing by GamesController#index as */*
+  [1m[36mGame Load (0.2ms)[0m  [1m[34mSELECT "games".* FROM "games"[0m
+  ↳ app/controllers/games_controller.rb:5:in `index'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."game_id" = ?[0m  [["game_id", 1]]
+  ↳ app/controllers/games_controller.rb:5:in `index'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."game_id" = ?[0m  [["game_id", 2]]
+  ↳ app/controllers/games_controller.rb:5:in `index'
+Completed 200 OK in 11ms (Views: 10.5ms | ActiveRecord: 0.6ms | Allocations: 3467)
+
+
+Started GET "/games" for ::1 at 2020-05-06 10:42:03 +0100
+Processing by GamesController#index as */*
+  [1m[36mGame Load (0.3ms)[0m  [1m[34mSELECT "games".* FROM "games"[0m
+  ↳ app/controllers/games_controller.rb:5:in `index'
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."game_id" = ?[0m  [["game_id", 1]]
+  ↳ app/controllers/games_controller.rb:5:in `index'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."game_id" = ?[0m  [["game_id", 2]]
+  ↳ app/controllers/games_controller.rb:5:in `index'
+Completed 200 OK in 12ms (Views: 10.8ms | ActiveRecord: 0.8ms | Allocations: 3467)
+
+
+Started GET "/games" for ::1 at 2020-05-06 10:42:04 +0100
+Processing by GamesController#index as */*
+  [1m[36mGame Load (0.2ms)[0m  [1m[34mSELECT "games".* FROM "games"[0m
+  ↳ app/controllers/games_controller.rb:5:in `index'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."game_id" = ?[0m  [["game_id", 1]]
+  ↳ app/controllers/games_controller.rb:5:in `index'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."game_id" = ?[0m  [["game_id", 2]]
+  ↳ app/controllers/games_controller.rb:5:in `index'
+Completed 200 OK in 9ms (Views: 7.8ms | ActiveRecord: 0.6ms | Allocations: 3467)
+
+
+Started GET "/games" for ::1 at 2020-05-06 10:42:04 +0100
+Processing by GamesController#index as */*
+  [1m[36mGame Load (0.1ms)[0m  [1m[34mSELECT "games".* FROM "games"[0m
+  ↳ app/controllers/games_controller.rb:5:in `index'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."game_id" = ?[0m  [["game_id", 1]]
+  ↳ app/controllers/games_controller.rb:5:in `index'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."game_id" = ?[0m  [["game_id", 2]]
+  ↳ app/controllers/games_controller.rb:5:in `index'
+Completed 200 OK in 10ms (Views: 8.6ms | ActiveRecord: 0.5ms | Allocations: 3467)
+
+
+Started GET "/games" for ::1 at 2020-05-06 10:42:04 +0100
+Processing by GamesController#index as */*
+  [1m[36mGame Load (0.2ms)[0m  [1m[34mSELECT "games".* FROM "games"[0m
+  ↳ app/controllers/games_controller.rb:5:in `index'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."game_id" = ?[0m  [["game_id", 1]]
+  ↳ app/controllers/games_controller.rb:5:in `index'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."game_id" = ?[0m  [["game_id", 2]]
+  ↳ app/controllers/games_controller.rb:5:in `index'
+Completed 200 OK in 10ms (Views: 9.6ms | ActiveRecord: 0.5ms | Allocations: 3467)
+
+
+Started GET "/games" for ::1 at 2020-05-06 10:42:05 +0100
+Processing by GamesController#index as */*
+  [1m[36mGame Load (0.2ms)[0m  [1m[34mSELECT "games".* FROM "games"[0m
+  ↳ app/controllers/games_controller.rb:5:in `index'
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."game_id" = ?[0m  [["game_id", 1]]
+  ↳ app/controllers/games_controller.rb:5:in `index'
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."game_id" = ?[0m  [["game_id", 2]]
+  ↳ app/controllers/games_controller.rb:5:in `index'
+Completed 200 OK in 8ms (Views: 7.2ms | ActiveRecord: 0.6ms | Allocations: 3467)
+
+
