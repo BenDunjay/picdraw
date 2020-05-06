@@ -53,12 +53,16 @@ document.addEventListener("DOMContentLoaded", () => {
   let currentGo = 1
   let currentPlayer = ""
   const newBtn = document.querySelector('#new-game')
+  const red = document.querySelector('#red')
+  const blue = document.querySelector('#blue')
+  const yellow = document.querySelector('#yellow')
+  const eraser = document.querySelector('#eraser')
 
   /////////// FUNCTIONS ///////////////
   canvas.width = 1000;
-  canvas.height = 500;
-  canvas.top = 170;
-  canvas.left = 430;
+  canvas.height = 650;
+  canvas.top = 120;
+  canvas.left = 410;
 
   const startPosition = (e) => {
     painting = true;
@@ -72,9 +76,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const paint = (e) => {
     if (!painting) return;
-    ctx.lineWidth = 5;
-    ctx.lineCap = "circle";
-    ctx.color = "white";
 
     ///// HACKY WAY TO DRAW AT MOUSE POINT. NEED TO FIGURE OUT MOUSE CO_ORDINATES ON CLICK ////////
     ctx.lineTo(e.clientX - canvas.offsetLeft, e.clientY - canvas.offsetTop);
@@ -86,6 +87,8 @@ document.addEventListener("DOMContentLoaded", () => {
       let game = games.slice(-1)[0];
       game.users.forEach((user) => renderUser(user));
       passingGame(game);
+      ctx.strokeStyle = 'white'
+      ctx.lineWidth = 5;
     });
   };
 
@@ -170,7 +173,7 @@ wordGenerator.addEventListener('click', () => {
     document.querySelector('#add-player').disabled = true
     picWord.innerText = wordArray[Math.floor(Math.random() * wordArray.length)]
     timer.hidden = false
-    timer.innerText = 10
+    timer.innerText = 30
     clearInterval(decreaseNew)
     decreaseNew = decreasingCounter()
 })
@@ -241,12 +244,12 @@ newBtn.addEventListener('click', () => {
                       users: []
 }
     api.post(GAMES_URL, newGame).then(()=> {
-      ulPlayers.innerHTML = "";
-      let innerTable = document.querySelectorAll('.row')
-      console.log(innerTable)
-      innerTable.forEach(row => row.remove())
-      document.querySelector('#add-player').disabled = false
-      // getPlayers()
+      // ulPlayers.innerHTML = "";
+      // let innerTable = document.querySelectorAll('.row')
+      // console.log(innerTable)
+      // innerTable.forEach(row => row.remove())
+      // document.querySelector('#add-player').disabled = false
+      location.reload();
     })
 })
 
@@ -267,6 +270,23 @@ window.onclick = function(event) {
     modal.style.display = "none";
   }
 }
+
+blue.addEventListener('click', () => {
+  ctx.strokeStyle = 'blue'
+  ctx.lineWidth = 5
+})
+red.addEventListener('click', () => {
+  ctx.strokeStyle = 'red'
+  ctx.lineWidth = 5
+})
+yellow.addEventListener('click', () => {
+  ctx.strokeStyle = 'yellow'
+  ctx.lineWidth = 5
+})
+eraser.addEventListener('click', () => {
+  ctx.strokeStyle = 'rgb(123, 57, 255)';
+  ctx.lineWidth = 100
+})
 
 // call function 
   getPlayers();
