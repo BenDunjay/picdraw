@@ -42,7 +42,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const playerLeaderboard = document.querySelector("#leaderboard");
   let playerNumber = 1;
   const canvas = document.querySelector("canvas");
-  const container = document.querySelector(".container-div");
+  // const container = document.querySelector(".container-div");
   const ctx = canvas.getContext("2d");
   let painting = false;
   const addPlayerBtn = document.querySelector("#add-player");
@@ -104,8 +104,16 @@ document.addEventListener("DOMContentLoaded", () => {
     removePlayer.classList.add('remove-player')
     currentPlayer.innerHTML = `${user.name}`;
 
-    const liPlayerScore = document.createElement("li");
-    liPlayerScore.innerText = ` ${playerNumber}. ${user.name} => ${user.points}`;
+    // const liPlayerScore = document.createElement("tr");
+    const table = document.querySelector('table')
+    const tableRow = table.insertRow()
+    const tablePosition = tableRow.insertCell(0)
+    const tableName = tableRow.insertCell(1)
+    const tablePoints = tableRow.insertCell(2)
+    tableName.innerHTML = `${user.name}`
+    tablePoints.innerHTML = `${user.points}`
+    tablePosition.innerHTML = `${playerNumber}`
+    // liPlayerScore.innerText = ` ${playerNumber}. ${user.name} => ${user.points}`;
     playerNumber += 1;
 
     currentPlayer.addEventListener('click', (e) => {
@@ -114,7 +122,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     liPlayer.append(currentPlayer, removePlayer);
     ulPlayers.appendChild(liPlayer);
-    playerLeaderboard.appendChild(liPlayerScore);
+    // playerLeaderboard.appendChild(liPlayerScore);
 
     removePlayer.addEventListener('click',() => {
       // console.log(user)

@@ -79,13 +79,6 @@ margin: 0;
     left: 410px;
 }
 
-.remove-player {
-    border: none;
-    padding: 0;
-    background: none;
-    padding: 5px 5px 5px 5px;
-  }
-
   .flip-card {
     background-color: transparent;
     width: 300px;
@@ -177,8 +170,16 @@ margin: 0;
 }
 
 #main-body {
-    background: black;
+    background: rgb(93, 92, 92);
     width: 360px;
     border-radius: 30px;
     margin: 50px 10px 0 10px;
+}
+
+#generate {
+  margin: 7px 0 0 100px;
+}
+
+#flip-card {
+  padding: 26px;
 }
