@@ -50,7 +50,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const wordGenerator = document.querySelector('#generate')
   const timer = document.querySelector('#timer')
   timer.hidden = true 
-  let currentGo = 0
+  let currentGo = 1
   let currentPlayer = ""
 
   /////////// FUNCTIONS ///////////////
@@ -80,7 +80,7 @@ document.addEventListener("DOMContentLoaded", () => {
     ctx.stroke();
   };
 
-  const getUsers = () => {
+  const getPlayers = () => {
     api.get(GAMES_URL).then((games) => {
       const game = games.slice(-1)[0];
       game.users.forEach((user) => renderUser(user));
@@ -158,7 +158,7 @@ let wordArray = [`Witch`, `American Flag`, `Penguin`, `Football Pitch`, `Horse`,
 wordGenerator.addEventListener('click', () => {
     picWord.innerText = wordArray[Math.floor(Math.random() * wordArray.length)]
     timer.hidden = false
-    timer.innerText = 3
+    timer.innerText = 30
     clearInterval(decreaseNew)
     decreaseNew = decreasingCounter()
 })
@@ -182,12 +182,16 @@ const cyclePlayer = () => {
     const game = games.slice(-1)[0];
    currentPlayer = game.users[currentGo].name
     console.log(currentPlayer)
+    displayPlayer()
     currentGo += 1
     if (currentGo >= game.users.length) {
       currentGo = 0
     }
   });
+}
 
+const displayPlayer = () => {
+  alert(`It is ${currentPlayer}'s go!`)
 }
 
 // clears the interval and resets it. Need to call this function every time it would be clicked on. 
@@ -208,7 +212,7 @@ const addScore = (user, event) => {
  tableRows.forEach(row => row.parentElement.remove())
     
  //re-render users with correct points.
- getUsers()
+ getPlayers()
 
  // tell them whos go it is next 
 cyclePlayer()
@@ -221,6 +225,6 @@ cyclePlayer()
 
 
 // call function 
-  getUsers();
-
+  getPlayers();
+  
 });
