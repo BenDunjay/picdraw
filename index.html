@@ -3,7 +3,6 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
     <link rel="stylesheet" href="css/application.css">
     <script src="src/myscripts.js"></script>
 
@@ -13,11 +12,14 @@
     <div class="navbar">
       <div id="title-block">
           <span id="title-block-e1">PICDRAW</span>
-          <div class="line"></div>
       </div>
+      <button id="new-game"> New Game</button>
     </div>
+    
   </header>
+  
 <div id="main-body">
+  
     <input id="new-player"> </input>
     <button id="add-player"> Add New Player </button>
     <ul id="list-players">
@@ -45,10 +47,15 @@
               <h2 id="word"> </h2> 
             </div>
           </div>
-            <button id="generate">Generate</button> 
+            <button id="generate">Start Game</button> 
         </div>
       </div>
   </div>
 </div>
-</body>
-</html>
+<div id="myModal" class="modal">
+
+  <!-- Modal content -->
+  <div class="modal-content">
+    <span class="close">&times;</span>
+    <p class="display-name"></p>
+  </div>

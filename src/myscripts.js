@@ -100,8 +100,9 @@ document.addEventListener("DOMContentLoaded", () => {
     const currentPlayer = document.createElement("button");
     currentPlayer.classList.add('player')
     const removePlayer = document.createElement("button");
-    removePlayer.innerHTML = '🚮'
+    removePlayer.innerHTML = 'X'
     removePlayer.classList.add('remove-player')
+    currentPlayer.disabled = true
     currentPlayer.innerHTML = `${user.name}`;
 
     // const liPlayerScore = document.createElement("tr");
@@ -117,6 +118,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
     currentPlayer.addEventListener('click', (e) => {
       addScore(user, e)
+      ctx.clearRect(0, 0, canvas.width, canvas.height) 
+      timer.innerHTML = 0
     })
 
     liPlayer.append(currentPlayer, removePlayer);
@@ -137,13 +140,13 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const createNewPlayer = (game) => {
     const name = addNewPlayer.value;
-    console.log(game.id);
     const user = {
       name: name,
       points: 0,
       game_id: game.id,
     };
     api.post(USERS_URL, user).then((newUser) => renderUser(newUser))
+    addNewPlayer.value = "" 
   };
 
 ///// TO BE MOVED AROUND
@@ -156,9 +159,12 @@ document.addEventListener("DOMContentLoaded", () => {
 let wordArray = [`Witch`, `American Flag`, `Penguin`, `Football Pitch`, `Horse`, `Computer`, `Tennis Racquet`, `Bob Marley`]
 
 wordGenerator.addEventListener('click', () => {
+    wordGenerator.innerText = `Generate Word`
+    document.querySelectorAll('.player').forEach((button) => button.disabled = false )
+    document.querySelector('#add-player').disabled = true
     picWord.innerText = wordArray[Math.floor(Math.random() * wordArray.length)]
     timer.hidden = false
-    timer.innerText = 30
+    timer.innerText = 10
     clearInterval(decreaseNew)
     decreaseNew = decreasingCounter()
 })
@@ -169,7 +175,6 @@ const decrease = () => {
     num = num - 1
     timer.innerText = num
     }else{
-    alert("Click on the person who got the answer right! Then when the next person is ready, click generate!")
     timer.hidden = true
     clearInterval(decreaseNew)
     ctx.clearRect(0, 0, canvas.width, canvas.height)
@@ -191,7 +196,9 @@ const cyclePlayer = () => {
 }
 
 const displayPlayer = () => {
-  alert(`It is ${currentPlayer}'s go!`)
+const playerName = document.querySelector('.display-name')
+  playerName.innerHTML = `${currentPlayer} it's your go! Click Generate to get a word!`
+  setTimeout(function(){ modal.style.display = "block"; }, 1000);
 }
 
 // clears the interval and resets it. Need to call this function every time it would be clicked on. 
@@ -223,6 +230,23 @@ cyclePlayer()
 })
 }
 
+// Get the modal
+const modal = document.getElementById("myModal");
+
+// Get the <span> element that closes the modal
+const span = document.getElementsByClassName("close")[0];
+
+// When the user clicks on <span> (x), close the modal
+span.onclick = function() {
+  modal.style.display = "none";
+}
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+  if (event.target == modal) {
+    modal.style.display = "none";
+  }
+}
 
 // call function 
   getPlayers();

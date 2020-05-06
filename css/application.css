@@ -32,7 +32,8 @@ padding: 35px;
 }
 
 #title-block {
-    float: right;
+    float: left;
+    margin: 20px 0 0 0 
 }
 
 #title-block-e1 {
@@ -137,13 +138,31 @@ margin: 0;
 
   /* CSS STYLES PLAY AROUND */
 
+  #new-game {
+    font-size: 20px;
+    margin: 25px 30px 0 0;
+    float: right
+  }
+
   .player {
     font-size: 15px;
     margin: 5px;
-    border-radius: 15px;
+    border-radius: 40px;
     padding: 5px 10px;
-    width: 200px
-} */
+    width: 200px;
+    fill: transparent;
+    background-color: transparent;
+    stroke-width: 1.5-x;
+    stroke: rgba(255,255,255,1);
+    color: white;
+    white-space: nowrap;
+    text-align: center;
+    font-family: Open Sans;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 20px;
+    text-align-last: center;
+} 
 
 #main-body {
     display: flex;
@@ -158,6 +177,7 @@ margin: 0;
 } 
 
 #add-player {
+
     max-width: fit-content;
     font-size: 15px;
     padding: 5px 5px 5px 5px;
@@ -175,7 +195,7 @@ margin: 0;
   border: none;
   padding: 0;
   background: none;
-  padding: 5px 5px 5px 5px;
+  padding: 5px 5px 5px 20px;
   font-size: 20px;
 }
 
@@ -196,4 +216,48 @@ margin: 0;
 
 #flip-card {
   padding: 26px;
+}
+
+/* MODAL */
+
+.modal {
+border-radius: 30px;
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  padding-top: 100px; /* Location of the box */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+
+}
+
+/* Modal Content */
+.modal-content {
+border-radius: 30px;
+  background-color: #fefefe;
+  margin: auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 50%;
+}
+
+/* The Close Button */
+.close {
+border-radius: 30px;
+  color: #aaaaaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
 }
