@@ -10,16 +10,12 @@
 </head>
 <body>
   <header>
-    <div class="dropdown">
-      <img id="dropdown-button" >
-      <div class="dropdown-content">
-        <p>Hello World!</p>
-      </div>
+    <div class="navbar">
       <div id="title-block">
-          <span id="title-block-e1">PICTIONARY</span>
+          <span id="title-block-e1">PICDRAW</span>
+          <div class="line"></div>
       </div>
     </div>
-  </div>
   </header>
 <div id="main-body">
     <input id="new-player"> </input>
@@ -30,8 +26,12 @@
 
     </ul>
     <rect class="draw-box" id="draw-box1"></rect>
+    <canvas class="draw-box" id="canvas"></canvas>
+    <rect id="timer-box">
+      <h2 id="timer"  ></h2>
+    </rect>
     <div id="container-div">
-      <canvas class="draw-box" id="canvas"></canvas>
+  
       <div id="flip-card">
         <div class="flip-card">
           <div class="flip-card-inner">
@@ -43,7 +43,7 @@
             </div>
           </div>
             <button id="generate">Generate</button>
-            <h2 id="timer"  ></h2>
+            
         </div>
       </div>
   </div>

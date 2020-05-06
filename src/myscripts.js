@@ -151,7 +151,7 @@ let wordArray = [`Witch`, `American Flag`, `Penguin`, `Football Pitch`, `Horse`,
 wordGenerator.addEventListener('click', () => {
     picWord.innerText = wordArray[Math.floor(Math.random() * wordArray.length)]
     timer.hidden = false
-    timer.innerText = 40
+    timer.innerText = 99
     clearInterval(decreaseNew)
     decreaseNew = decreasingCounter()
 })
