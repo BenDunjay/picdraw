@@ -174,7 +174,7 @@ wordGenerator.addEventListener('click', () => {
     document.querySelector('#add-player').disabled = true
     picWord.innerText = wordArray[Math.floor(Math.random() * wordArray.length)]
     timer.hidden = false
-    timer.innerText = 3
+    timer.innerText = 30
     clearInterval(decreaseNew)
     decreaseNew = decreasingCounter()
 })
