@@ -101,6 +101,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const renderUser = (user) => {
     
     const liPlayer = document.createElement("li");
+    liPlayer.classList.add('player-li')
     const currentPlayer = document.createElement("button");
     currentPlayer.classList.add('player')
     const removePlayer = document.createElement("button");
@@ -124,7 +125,7 @@ document.addEventListener("DOMContentLoaded", () => {
     currentPlayer.addEventListener('click', (e) => {
       addScore(user, e)
       ctx.clearRect(0, 0, canvas.width, canvas.height) 
-      timer.innerHTML = 0
+      // timer.innerHTML = 0
     })
 
     liPlayer.append(currentPlayer, removePlayer);
@@ -165,7 +166,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   ///// RANDOM WORD EVENT LISTENER
 
-let wordArray = [`Witch`, `American Flag`, `Penguin`, `Football Pitch`, `Horse`, `Computer`, `Tennis Racquet`, `Bob Marley`]
+let wordArray = [`Witch`, `American Flag`, `Penguin`, `Football Pitch`, `Horse`, `Computer`, `Tennis Racquet`, `Bob Marley`, `Iron`, `Trump`, `Hot Air Balloon`, `Fishing Trip`, `Hurdles`]
 
 wordGenerator.addEventListener('click', () => {
     wordGenerator.innerText = `Generate Word`
@@ -173,7 +174,7 @@ wordGenerator.addEventListener('click', () => {
     document.querySelector('#add-player').disabled = true
     picWord.innerText = wordArray[Math.floor(Math.random() * wordArray.length)]
     timer.hidden = false
-    timer.innerText = 30
+    timer.innerText = 3
     clearInterval(decreaseNew)
     decreaseNew = decreasingCounter()
 })
@@ -206,8 +207,14 @@ const cyclePlayer = () => {
 
 const displayPlayer = () => {
 const playerName = document.querySelector('.display-name')
-  playerName.innerHTML = `${currentPlayer} it's your go! Click Generate to get a word!`
-  setTimeout(function(){ modal.style.display = "block"; }, 1000);
+console.log(timer.innerHTML)
+if (parseInt(timer.innerHTML) > 0){
+  playerName.innerHTML = `Great guess! ${currentPlayer} it's your go! Click Generate to get a word!`
+  setTimeout(function(){ modal.style.display = "block"; }, 1000);}
+  else {
+    playerName.innerHTML = `You ran out of time! ${currentPlayer} it's your go! Click Generate to get a word!`
+    setTimeout(function(){ modal.style.display = "block"; }, 1000)
+  }
 }
 
 // clears the interval and resets it. Need to call this function every time it would be clicked on. 

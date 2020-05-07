@@ -219,7 +219,7 @@ margin: 17px;
 
  #new-player {
     max-width: fit-content;
-    padding: 5px;
+    padding: 5px 0 5px 0;
     margin: 20px 5px 5px 30px;
     box-shadow: 1px 2px 3px rgba(0,0,0,.5);
 } 
@@ -227,7 +227,7 @@ margin: 17px;
 #add-player {
     max-width: fit-content;
     font-size: 15px;
-    padding: 5px 5px 5px 5px;
+    padding: 5px 7px 7px 7px;
     margin: 5px 0px 0px 30px;
     box-shadow: 1px 2px 3px rgba(0,0,0,.5);
     border-radius: 100px;
@@ -235,7 +235,8 @@ margin: 17px;
 
 #list-players {
   font-size: 0;
-  padding: 30px 30px 0 30px;
+  padding: 20px 30px 0 30px;
+  margin-bottom: 10px;
 }
 
 .remove-player {
@@ -250,11 +251,15 @@ margin: 17px;
     background: rgb(93, 92, 92);
     width: 360px;
     border-radius: 30px;
-    margin: 43px 10px 0 10px;
+    margin: 43px 10px 10px 10px;
+    padding-bottom: 10px;
+    padding-top: 5px;
+
 }
 
 #generate {
-  margin: 7px 0 0 100px;
+  margin: 7px 0 10px 80px;
+  font-size: 15px;
 }
 
 #done {
@@ -308,3 +313,82 @@ border-radius: 30px;
   text-decoration: none;
   cursor: pointer;
 }
+
+table, th, td {
+  border: 1px solid white;
+  font-size: 17px;
+  margin: 10px 0px 0px 62px;
+  width: 200px;
+  text-align: center;
+  color: white;
+}
+
+.instructions {
+  align-items: center;
+  color: blue;
+  margin: 30px;
+}
+
+.player-li{
+  margin: 0px 25px 0 25px;
+}
+/* 
+.player {
+  width: 220px;
+  height: 50px;
+  border: none;
+  outline: none;
+  color: #fff;
+  background: transparent;
+  cursor: pointer;
+  position: relative;
+  z-index: 0;
+  border-radius: 10px;
+}
+
+.player:before {
+  content: '';
+  background: linear-gradient(45deg, #ff0000, #ff7300, #fffb00, #48ff00, #00ffd5, #002bff, #7a00ff, #ff00c8, #ff0000);
+  position: absolute;
+  top: -2px;
+  left:-2px;
+  background-size: 400%;
+  z-index: -1;
+  filter: blur(5px);
+  width: calc(100% + 4px);
+  height: calc(100% + 4px);
+  animation: glowing 20s linear infinite;
+  opacity: 0;
+  transition: opacity .3s ease-in-out;
+  border-radius: 10px;
+}
+
+.player:active {
+  color: #000
+}
+
+.player:active:after {
+  background: transparent;
+}
+
+.player:hover:before {
+  opacity: 1;
+}
+
+.player:after {
+  z-index: -1;
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: transparent;
+  left: 0;
+  top: 0;
+  border-radius: 10px;
+}
+
+@keyframes glowing {
+  0% { background-position: 0 0; }
+  50% { background-position: 400% 0; }
+  100% { background-position: 0 0; }
+} */
